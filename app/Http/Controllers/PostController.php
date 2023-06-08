@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Post;
 class PostController extends Controller
 {
     /**
@@ -12,6 +12,8 @@ class PostController extends Controller
     public function index()
     {
         //
+        $posts = Post::all();
+        return view('homepage')->with('posts',$posts);
     }
 
     /**
@@ -20,6 +22,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('create');
     }
 
     /**
@@ -35,7 +38,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Post::find($id);
+        return view('post')->with('post',$post);
     }
 
     /**

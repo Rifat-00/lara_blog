@@ -22,9 +22,9 @@
             <div class="flex w-full fixed sm:top-0 sm:right-0 p-6 text-right z-10 dark:bg-gray-800">
                 @auth
                     <div class="navigation">
-                        <a href="{{ url('/dashboard') }}"
+                        <a href="{{ url('/homepage') }}"
                             class="pl-10 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Home</a>
-                        <a href="{{ url('/dashboard') }}"
+                        <a href="{{ url('/post/create') }}"
                             class="pl-10 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Create</a>
                         <a href="{{ url('/dashboard') }}"
                             class="pl-10 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Dashboard</a>

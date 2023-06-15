@@ -19,6 +19,7 @@
             <p class="text-lg pt-3">{{ Str::words($post->content, $words = 20, $end = '...') }}
             </p>
             <p class="pt-3"><a href="post/{{ $post->id }}">read more&rarr;</a></p>
+            <p class="pt-3"><a href="post/{{ $post->id }}/edit">edit&rarr;</a></p>
         </div>
 
         @endforeach

@@ -11,4 +11,11 @@ class Post extends Model
 
     protected $table='posts';
     protected $fillable=['title','posted_date','author','content'];
+
+    protected static function booted()
+    {
+        static::creating(function ($post) {
+            $post->posted_date = now()->toDateString();
+        });
+    }
 }

@@ -12,8 +12,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
-        return view('homepage')->with('posts',$posts);
+        $posts = Post::all()->sortByDesc('created_at');
+        return view('post.index')->with('posts',$posts);
     }
 
     /**
@@ -22,7 +22,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('create');
+        return view('post.create');
     }
 
     /**
@@ -31,6 +31,14 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $post = Post::create([
+            'title'=>$request->title,
+            'posted_date'=>$request->posted_date,
+            'author'=>$request->author,
+            'content'=>$request->content
+        ]);
+
+        return redirect('/post');
     }
 
     /**
@@ -39,7 +47,7 @@ class PostController extends Controller
     public function show(string $id)
     {
         $post = Post::find($id);
-        return view('post')->with('post',$post);
+        return view('post.post')->with('post',$post);
     }
 
     /**
@@ -48,6 +56,9 @@ class PostController extends Controller
     public function edit(string $id)
     {
         //
+
+        $post = Post::find($id);
+        return view('post.edit')->with('post',$post);
     }
 
     /**

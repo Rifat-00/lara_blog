@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('content'); //make a new column for content
             $table->timestamps(); //make a new column for timestamps
             
-
+            return redirect('/post');
             
         });
     }
